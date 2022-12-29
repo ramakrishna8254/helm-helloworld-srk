@@ -3,8 +3,11 @@ pipeline{
     stages {
         stage('Build Maven') {
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'ramakrishna8254', url: 'https://github.com/ramakrishna8254/helm-helloworld-srk.git']]])
-             }
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'devopshint', url: 'https://github.com/devopshint/jenkins...]]])
+
+             
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
@@ -16,9 +19,9 @@ pipeline{
             steps {
                 script {
                  withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                    sh 'docker login -u ramakrishna8254 -p ${dockerhubpwd}'
+                    sh 'docker login -u devopshint -p ${dockerhubpwd}'
                  }  
-                 sh 'docker push ramakrishna8254/nodejsapp-1.0:latest'
+                 sh 'docker push devopshint/nodejsapp-1.0:latest'
                 }
             }
         }
@@ -39,5 +42,4 @@ pipeline{
     }
     }
     }
-}
 }
