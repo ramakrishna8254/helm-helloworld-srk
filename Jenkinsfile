@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent any {
     stage('Git Checkout'){
         git 'https://github.com/ramakrishna8254/helm-helloworld-srk.git'
     }
@@ -20,4 +20,5 @@ pipeline{
                 }
             }
         }
-}
+   }
+}    
