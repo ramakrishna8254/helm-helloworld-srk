@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage('Build Maven') {
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'ramakrishna8254', url: 'https://github.com/ramakrishna8254/helm-helloworld-srk.git']])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'ramakrishna8254', url: 'https://github.com/ramakrishna8254/helm-helloworld-srk.git'])
 
              
             }
